@@ -134,9 +134,10 @@ def _ev(e: Event, bl_ips: set = None) -> dict:
 
 @router.get("/stats")
 async def get_stats(db: AsyncSession = Depends(get_db),
-                    _: User = Depends(get_current_user)):
+    _: User = Depends(get_current_user)):
     day_start = datetime(2024, 1, 1, 0,  0,  0, tzinfo=timezone.utc)
-    day_end   = datetime(2024, 1, 1, 23, 59, 59, tzinfo=timezone.utc)
+    day_end   = datetime.now(timezone.utc)
+
 
     total_24h = (await db.execute(
         select(func.count()).where(Event.sim_timestamp.between(day_start, day_end))

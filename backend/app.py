@@ -23,8 +23,8 @@ async def ensure_admin():
     from src.database.connection import AsyncSessionLocal
     from src.modules.auth.auth import hash_password
 
-    ADMIN_EMAIL = "azizarfaoui678@gmail.com"
-    ADMIN_PASS  = "AzizArfa1234@@"
+    ADMIN_EMAIL = "admin123@gmail.com"
+    ADMIN_PASS  = "admin123"
     ADMIN_NAME  = "Admin"
 
     async with AsyncSessionLocal() as db:
@@ -177,7 +177,7 @@ async def lifespan(app: FastAPI):
 
     # Start sim loop
     sim_task = asyncio.create_task(_sim_loop())
-    logger.info("✅ CYBERMON ready — login: azizarfaoui678@gmail.com / AzizArfa1234@@")
+    logger.info("✅ CYBERMON ready — login: admincybermon11@gmail.com / admin123")
 
     yield
 

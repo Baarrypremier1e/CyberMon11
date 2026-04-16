@@ -110,9 +110,9 @@ export default function Settings() {
             </div>
             <div className="space-y-5">
               {[
-                {label:'Administrative Name',type:'text',     set:setName},
-                {label:'Secure Email',       type:'email',      set:setEmail},
-                {label:'Protocol Password',  type:'password', set:setPassword},
+                {label:'Administrative Name',type:'text',    val:null,     set:setName},
+                {label:'Secure Email',       type:'email',   val:null,    set:setEmail},
+                {label:'Protocol Password',  type:'password',val:null, set:setPassword},
               ].map(f=>(
                 <div key={f.label}>
                   <label className="block text-[10px] font-headline font-bold text-slate-500 uppercase tracking-widest mb-1.5">{f.label}</label>

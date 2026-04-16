@@ -134,13 +134,13 @@ class SimulationEngine:
         base = EVENT_TYPES[action]["base_score"]
         hist = self.ip_history.get(ip, [])
         freq   = min(15, len(hist) * 2)
-        time_b = 10 if (sim_hour < 6 or sim_hour > 22) else 0
-        geo    = 8  if country in ("RU","CN","BR","KR","NG") else 0
+        time_b = 5 if (sim_hour < 6 or sim_hour > 22) else 0
+        geo    = 4  if country in ("RU","CN","BR","KR","NG") else 0
         corr   = 0
-        if "PORT_SCAN" in hist and action == "LOGIN_FAILED":           corr = 15
-        if "BRUTE_FORCE" in hist and action == "PRIVILEGE_ESCALATION": corr = 20
-        if "SQL_INJECTION" in hist and action == "DATA_EXFILTRATION":  corr = 20
-        hist_b = min(10, len([h for h in hist if h in
+        if "PORT_SCAN" in hist and action == "LOGIN_FAILED":           corr = 10
+        if "BRUTE_FORCE" in hist and action == "PRIVILEGE_ESCALATION": corr = 15
+        if "SQL_INJECTION" in hist and action == "DATA_EXFILTRATION":  corr = 15
+        hist_b = min(6, len([h for h in hist if h in
                     ("BRUTE_FORCE","SQL_INJECTION","DDoS","PORT_SCAN")])*3)
         return min(100, base + freq + time_b + geo + corr + hist_b)
 
@@ -230,7 +230,7 @@ class SimulationEngine:
         morning   = math.exp(-((h-10)**2)/8)
         afternoon = math.exp(-((h-14)**2)/8)
         rate      = max(0.1, morning*.7 + afternoon*.6)
-        prob_atk  = 0.05 + (1-rate)*.12
+        prob_atk  = 0.01 + (1-rate)*.07
 
         evs = []
         # Normal: 1-3 events max per tick (not 4-10)

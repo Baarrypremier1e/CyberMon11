@@ -90,18 +90,11 @@ INSERT INTO sim_config (key, value) VALUES
     ('time_scale',           '60')
 ON CONFLICT (key) DO NOTHING;
 
--- Admin account: admincybermon11@gmail.com / admin123
+-- Admin account: admincybermon11@gmail.com / admin123 
 INSERT INTO users (name, email, password_hash, role, status) VALUES
     ('Admin',
      'admincybermon11@gmail.com',
-     '$2b$12$itk3UNjUNE8V2t2zGnthresdBfg6O2UlmFxFKXWRNeAMwRD50tBQ2',
-     'admin',
-     'offline')
-ON CONFLICT (email) DO NOTHING;
-INSERT INTO users (name, email, password_hash, role, status) VALUES
-    ('Ibrahima Barry',
-     'ibrahima.barry.b1er@gmail.com',
-     '$2b$12$5hg3DebPhuJSrtgBmZdnBe5Ypp/kCeGfwxzG9Us6h/BeQRVueihSu',
+     '$2b$12$2o9KQykaLbIEHsMw4xmlTeH5dtexio1P3YNwAknPhAgTHG5nVieXu',
      'admin',
      'offline')
 ON CONFLICT (email) DO NOTHING;

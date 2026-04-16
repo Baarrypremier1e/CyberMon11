@@ -16,7 +16,7 @@ api.interceptors.response.use(r => r, err => {
 export const authAPI = {
   login:    (email:string,password:string) => api.post('/auth/login',{email,password}).then(r=>r.data),
   register: (name:string,email:string,password:string,role:string) =>
-  api.post('/auth/register',{name,email,password,role}).then(r=>r.data),
+            api.post('/auth/register',{name,email,password}).then(r=>r.data),
   logout:   () => api.post('/auth/logout').then(r=>r.data),
 }
 export const eventsAPI = {
@@ -34,7 +34,7 @@ export const blacklistAPI = {
   list:  ()  => api.get('/blacklist').then(r=>r.data),
   stats: ()  => api.get('/blacklist/stats').then(r=>r.data),
   add:   (d:{ip:string;reason:string;threat_level:string;event_type?:string;auto_blocked?:boolean}) =>
-  api.post('/blacklist',d).then(r=>r.data),
+         api.post('/blacklist',d).then(r=>r.data),
   remove:(ip:string) => api.delete(`/blacklist/${ip}`).then(r=>r.data),
 }
 export const usersAPI = {
@@ -54,12 +54,12 @@ export const simAPI = {
 export const settingsAPI = {
   getThresholds:    () => api.get('/settings/thresholds').then(r=>r.data),
   updateThresholds: (d:{normal:number;suspicious:number;attack:number;critical:number}) =>
-  api.patch('/settings/thresholds',d).then(r=>r.data),
+                    api.patch('/settings/thresholds',d).then(r=>r.data),
   updateProfile:    (d:{name?:string;email?:string;password?:string}) =>
-  api.patch('/settings/profile',d).then(r=>r.data),
+                    api.patch('/settings/profile',d).then(r=>r.data),
   getNotifPrefs:    () => api.get('/settings/notifications').then(r=>r.data),
   saveNotifPrefs:   (d:{alerts_enabled:boolean;email_enabled?:boolean;critical_only?:boolean}) =>
-  api.patch('/settings/notifications',d).then(r=>r.data),
+                    api.patch('/settings/notifications',d).then(r=>r.data),
 }
 export const reportAPI = {
   get: () => api.get('/report').then(r => r.data),

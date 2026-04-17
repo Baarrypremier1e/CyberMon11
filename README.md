@@ -1,4 +1,4 @@
-# 🛡️ CYBERMON v6 — Sentinel Protocol
+# 🛡️ CYBERMON v11 — Sentinel Protocol
 
 Cybermon est une plateforme de simulation SIEM qui génère du trafic réseau réaliste pour entraîner les analystes SOC à détecter des patterns d'attaques (Brute Force, SQL Injection, DDoS) basés sur un modèle temporel circadien 
 

@@ -98,3 +98,24 @@ INSERT INTO users (name, email, password_hash, role, status) VALUES
      'admin',
      'offline')
 ON CONFLICT (email) DO NOTHING;
+INSERT INTO users (name, email, password_hash, role, status) VALUES
+    ('Security Engineer',
+     'engineercybermon11@gmail.com',
+     '$2b$12$tAXdZ3adgCdryjiA6eZEd.TaIQ8t/QynvFT1m9LDEbvNTHLSv9vJ6',
+     'security_engineer',
+     'offline')
+ON CONFLICT (email) DO NOTHING;
+INSERT INTO users (name, email, password_hash, role, status) VALUES
+    ('Analyst',
+     'analystcybermon11@gmail.com',
+     '$2b$12$TncYgPENVjHp5vCG/7zwreMj07newnZni8IzbMdI1RxBizTx8r1Ka',
+     'analyst',
+     'offline')
+ON CONFLICT (email) DO NOTHING;
+INSERT INTO users (name, email, password_hash, role, status) VALUES
+    ('Viewer',
+     'viewercybermon11@gmail.com',
+     '$2b$12$deTZLsvhT0i9SfLhbRmjn.W8sq6WnWD7O0BughMqoLrHhU.q9aPCG',
+     'user',
+     'offline')
+ON CONFLICT (email) DO NOTHING;
